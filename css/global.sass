@@ -1,0 +1,69 @@
+// sass --watch css/global.sass:css/global.css
+@import "variables.sass"
+
+body
+	background-color: $c-darker
+	margin: 0px
+	font-family: 'Roboto', Arial, sans-serif
+	color: $c-contrast
+input, textarea, button
+	font-family: 'Roboto', Arial, sans-serif
+	border: none
+	font-size: 16px
+button
+	font-size: 14px
+	cursor: pointer
+input:focus, button:focus
+	outline: none
+
+a, a:link, a:visited, a:link:active, a:visited:active
+	text-decoration: none
+	outline: none
+	color: white
+p
+	margin: 0px
+	font-size: 16px
+h1, h2, h3, h4, h5, h6
+	font-weight: normal
+	margin: 0px
+	text-align: center
+h1
+	font-size: 56px
+h2
+	font-size: 42px
+h3
+	font-size: 28px
+.ts
+	transition: all .15s ease
+.hidden
+	display: none
+
+.center-xy
+	position: fixed
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+.flex-col
+	display: flex
+	justify-content: center
+	flex-direction: column
+	height: 100%
+.flex-row
+	display: flex
+	justify-content: center
+	flex-direction: row
+	width: 100%
+
+.input
+	border: none
+	padding: $input-padding
+	background-color: transparent
+	color: $c-contrast
+	font-family: "Roboto", sans-serif
+.link-text-hover
+	color: $c-contrast
+	transition: color $transition
+	&:hover, &:active, &:focus
+		color: $c-link
+.pos-fixed
+	position: fixed

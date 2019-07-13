@@ -1,0 +1,82 @@
+body {
+  background-color: #323742;
+  margin: 0px;
+  font-family: "Roboto", Arial, sans-serif;
+  color: #FFFFFF; }
+
+input, textarea, button {
+  font-family: "Roboto", Arial, sans-serif;
+  border: none;
+  font-size: 16px; }
+
+button {
+  font-size: 14px;
+  cursor: pointer; }
+
+input:focus, button:focus {
+  outline: none; }
+
+a, a:link, a:visited, a:link:active, a:visited:active {
+  text-decoration: none;
+  outline: none;
+  color: white; }
+
+p {
+  margin: 0px;
+  font-size: 16px; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  margin: 0px;
+  text-align: center; }
+
+h1 {
+  font-size: 56px; }
+
+h2 {
+  font-size: 42px; }
+
+h3 {
+  font-size: 28px; }
+
+.ts {
+  transition: all 0.15s ease; }
+
+.hidden {
+  display: none; }
+
+.center-xy {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
+.flex-col {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%; }
+
+.flex-row {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%; }
+
+.input {
+  border: none;
+  padding: 12px;
+  background-color: transparent;
+  color: #FFFFFF;
+  font-family: "Roboto", sans-serif; }
+
+.link-text-hover {
+  color: #FFFFFF;
+  transition: color 0.15s cubic-bezier(0.4, 0, 0.2, 1); }
+  .link-text-hover:hover, .link-text-hover:active, .link-text-hover:focus {
+    color: #1786ED; }
+
+.pos-fixed {
+  position: fixed; }
+
+/*# sourceMappingURL=global.css.map */

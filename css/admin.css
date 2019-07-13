@@ -1,0 +1,408 @@
+.nav-bar.flex-row {
+  z-index: 7;
+  position: fixed;
+  height: 60px;
+  background-color: #1B4C79;
+  box-shadow: rgba(0, 0, 0, 0.15686) 0px 3px 10px, rgba(0, 0, 0, 0.22745) 0px 3px 10px;
+  justify-content: space-between; }
+  .nav-bar.flex-row a {
+    width: 200px;
+    transition: box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1); }
+    .nav-bar.flex-row a:hover div {
+      box-shadow: rgba(0, 0, 0, 0.15686) 0px 3px 10px, rgba(0, 0, 0, 0.22745) 0px 3px 10px; }
+    .nav-bar.flex-row a:focus, .nav-bar.flex-row a:active div {
+      box-shadow: rgba(0, 0, 0, 0.15686) 0px 3px 10px, rgba(0, 0, 0, 0.22745) 0px 3px 10px;
+      background-color: #21588B; }
+  .nav-bar.flex-row div {
+    cursor: pointer;
+    transition: box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 60px;
+    min-width: 0;
+    width: 100%;
+    line-height: 60px;
+    text-align: center;
+    font-size: 20px; }
+    .nav-bar.flex-row div.active {
+      border-bottom: 2px solid white;
+      box-sizing: border-box; }
+  .nav-bar.flex-row a:first-child, .nav-bar.flex-row a:last-child {
+    width: 60px; }
+    .nav-bar.flex-row a:first-child div, .nav-bar.flex-row a:last-child div {
+      width: 60px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-image: url("/cdn/icons/menu.png"); }
+  .nav-bar.flex-row a:last-child div {
+    background-image: url("/cdn/icons/logout.png"); }
+
+body > div.loading {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: #323742;
+  z-index: 99; }
+
+aside {
+  z-index: 7;
+  position: fixed;
+  width: 220px;
+  height: 100%;
+  background-color: #282C35;
+  top: 60px;
+  box-shadow: rgba(0, 0, 0, 0.15686) 0px 3px 10px, rgba(0, 0, 0, 0.22745) 0px 3px 10px;
+  transform: translateX(-225px);
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1); }
+  aside.loading {
+    transition: none; }
+  aside.open {
+    transform: translateX(0px); }
+  aside div.current-page {
+    border-left: 2px solid #FFFFFF; }
+  aside div.search input {
+    width: calc(220px - 12px * 2 - 20px);
+    margin: 10px;
+    background-color: #323742;
+    border-radius: 3px;
+    font-size: 15px;
+    transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.28s cubic-bezier(0.4, 0, 0.2, 1); }
+    aside div.search input:hover {
+      box-shadow: rgba(0, 0, 0, 0.11765) 0px 1px 6px, rgba(0, 0, 0, 0.11765) 0px 1px 4px; }
+    aside div.search input:focus, aside div.search input:active {
+      box-shadow: rgba(0, 0, 0, 0.11765) 0px 1px 6px, rgba(0, 0, 0, 0.11765) 0px 1px 4px;
+      background-color: #3F444F; }
+  aside div.artist, aside div.track {
+    cursor: pointer;
+    transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s; }
+    aside div.artist:hover, aside div.track:hover {
+      box-shadow: rgba(0, 0, 0, 0.11765) 0px 1px 6px, rgba(0, 0, 0, 0.11765) 0px 1px 4px;
+      background-color: #323742; }
+    aside div.artist:focus, aside div.artist:active, aside div.track:focus, aside div.track:active {
+      box-shadow: rgba(0, 0, 0, 0.11765) 0px 1px 6px, rgba(0, 0, 0, 0.11765) 0px 1px 4px;
+      background-color: #3F444F; }
+    aside div.artist.active, aside div.track.active {
+      border-right: 2px solid white; }
+    aside div.artist p, aside div.track p {
+      padding: 10px; }
+  aside div.track p:first-child {
+    padding: 10px 10px 1px 10px; }
+  aside div.track p:last-child {
+    padding: 1px 10px 10px 10px;
+    color: #E4E4E4;
+    font-size: 14px; }
+
+main {
+  z-index: 3;
+  overflow: scroll;
+  padding-top: 15px;
+  height: calc(100% - 60px - 15px);
+  position: fixed;
+  left: 220px;
+  top: 60px;
+  min-width: 580px;
+  width: 100%;
+  transform: translateX(-220px);
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), width 0.28s cubic-bezier(0.4, 0, 0.2, 1); }
+  main.loading {
+    transition: none; }
+  main.open {
+    width: calc(100% - 220px);
+    transform: translateX(0px); }
+  main section.artist-track-info form {
+    box-shadow: rgba(0, 0, 0, 0.11765) 0px 1px 6px, rgba(0, 0, 0, 0.11765) 0px 1px 4px; }
+    main section.artist-track-info form::before {
+      width: 100%;
+      height: 10px;
+      background-color: #323742;
+      content: "";
+      position: absolute;
+      transform: translateY(-10px); }
+    main section.artist-track-info form section.track-links input {
+      font-size: 15px; }
+    main section.artist-track-info form input {
+      font-size: 16px;
+      transition: box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.28s cubic-bezier(0.4, 0, 0.2, 1); }
+      main section.artist-track-info form input:hover {
+        box-shadow: rgba(0, 0, 0, 0.11765) 0px 1px 6px, rgba(0, 0, 0, 0.11765) 0px 1px 4px; }
+      main section.artist-track-info form input:focus, main section.artist-track-info form input:active {
+        box-shadow: rgba(0, 0, 0, 0.15686) 0px 3px 10px, rgba(0, 0, 0, 0.22745) 0px 3px 10px;
+        background-color: #3F444F; }
+    main section.artist-track-info form div.static {
+      max-width: 1000px;
+      margin: 0px auto;
+      justify-content: space-between;
+      flex-direction: row-reverse; }
+      main section.artist-track-info form div.static.description {
+        padding-top: 10px;
+        justify-content: center;
+        flex-direction: row;
+        max-width: 560px; }
+        main section.artist-track-info form div.static.description input {
+          margin: 0px 5px; }
+          main section.artist-track-info form div.static.description input:nth-child(1) {
+            margin-left: 0px;
+            width: 100%; }
+          main section.artist-track-info form div.static.description input:nth-child(2) {
+            width: 130px;
+            font-size: 15px; }
+          main section.artist-track-info form div.static.description input:nth-child(3) {
+            margin-right: 0px;
+            width: 85px;
+            text-align: center;
+            font-size: 15px; }
+      main section.artist-track-info form div.static div {
+        width: auto;
+        min-width: 290px; }
+        main section.artist-track-info form div.static div input {
+          margin: 0px 5px;
+          width: 204px;
+          min-width: 75px; }
+          main section.artist-track-info form div.static div input.catnum {
+            min-width: 60px;
+            width: 60px;
+            text-align: center;
+            font-size: 15px; }
+          main section.artist-track-info form div.static div input:first-child {
+            margin-left: 0px; }
+          main section.artist-track-info form div.static div input:last-child {
+            margin-right: 0px; }
+      main section.artist-track-info form div.static input {
+        background-color: #3F444F; }
+        main section.artist-track-info form div.static input:hover, main section.artist-track-info form div.static input:active, main section.artist-track-info form div.static input:focus {
+          background-color: #1B4C79; }
+        main section.artist-track-info form div.static input.submit {
+          cursor: pointer;
+          margin: 0px 20px;
+          min-width: 43px;
+          width: 43px;
+          height: 43px;
+          background-repeat: no-repeat;
+          background-position: center;
+          border-radius: 50px;
+          background-color: #1B4C79; }
+          main section.artist-track-info form div.static input.submit:hover, main section.artist-track-info form div.static input.submit:active, main section.artist-track-info form div.static input.submit:focus {
+            background-color: #1B4C79; }
+        main section.artist-track-info form div.static input.update {
+          background-image: url("/cdn/icons/save.png"); }
+        main section.artist-track-info form div.static input.delete {
+          background-image: url("/cdn/icons/delete.png"); }
+        main section.artist-track-info form div.static input.create {
+          background-image: url("/cdn/icons/plus.png"); }
+        main section.artist-track-info form div.static input.spacer {
+          visibility: hidden; }
+    main section.artist-track-info form section.artist-links, main section.artist-track-info form section.track-links {
+      padding-top: 15px; }
+      main section.artist-track-info form section.artist-links p, main section.artist-track-info form section.artist-links input.linkname, main section.artist-track-info form section.track-links p, main section.artist-track-info form section.track-links input.linkname {
+        width: 90px;
+        text-align: right; }
+      main section.artist-track-info form section.artist-links p, main section.artist-track-info form section.track-links p {
+        min-width: 90px;
+        padding: 15px;
+        font-size: 16px;
+        color: #A9A9A9; }
+      main section.artist-track-info form section.artist-links div.icon, main section.artist-track-info form section.track-links div.icon {
+        width: 20px;
+        background-size: contain;
+        margin-right: 10px;
+        background-repeat: no-repeat;
+        background-position: center; }
+        main section.artist-track-info form section.artist-links div.icon.website, main section.artist-track-info form section.track-links div.icon.website {
+          background-image: url("/cdn/icons/sm/home.png"); }
+        main section.artist-track-info form section.artist-links div.icon.download, main section.artist-track-info form section.track-links div.icon.download {
+          background-image: url("/cdn/icons/download.png"); }
+        main section.artist-track-info form section.artist-links div.icon.soundcloud, main section.artist-track-info form section.track-links div.icon.soundcloud {
+          background-image: url("/cdn/icons/sm/soundcloud.png"); }
+        main section.artist-track-info form section.artist-links div.icon.youtube, main section.artist-track-info form section.track-links div.icon.youtube {
+          background-image: url("/cdn/icons/sm/youtube.png"); }
+        main section.artist-track-info form section.artist-links div.icon.facebook, main section.artist-track-info form section.track-links div.icon.facebook {
+          background-image: url("/cdn/icons/sm/facebook.png"); }
+        main section.artist-track-info form section.artist-links div.icon.twitter, main section.artist-track-info form section.track-links div.icon.twitter {
+          background-image: url("/cdn/icons/sm/twitter.png"); }
+        main section.artist-track-info form section.artist-links div.icon.instagram, main section.artist-track-info form section.track-links div.icon.instagram {
+          background-image: url("/cdn/icons/sm/instagram.png"); }
+        main section.artist-track-info form section.artist-links div.icon.spotify, main section.artist-track-info form section.track-links div.icon.spotify {
+          background-image: url("/cdn/icons/sm/spotify.png"); }
+        main section.artist-track-info form section.artist-links div.icon.beatport, main section.artist-track-info form section.track-links div.icon.beatport {
+          background-image: url("/cdn/icons/sm/beatport.png"); }
+        main section.artist-track-info form section.artist-links div.icon.itunes, main section.artist-track-info form section.track-links div.icon.itunes {
+          background-image: url("/cdn/icons/sm/apple.png"); }
+        main section.artist-track-info form section.artist-links div.icon.googleplaymusic, main section.artist-track-info form section.track-links div.icon.googleplaymusic {
+          background-image: url("/cdn/icons/sm/googleplaymusic.png"); }
+        main section.artist-track-info form section.artist-links div.icon.bandcamp, main section.artist-track-info form section.track-links div.icon.bandcamp {
+          background-image: url("/cdn/icons/sm/bandcamp.png"); }
+      main section.artist-track-info form section.artist-links input, main section.artist-track-info form section.track-links input {
+        padding: 15px; }
+        main section.artist-track-info form section.artist-links input.link, main section.artist-track-info form section.track-links input.link {
+          width: 500px;
+          min-width: 150px; }
+      main section.artist-track-info form section.artist-links > div, main section.artist-track-info form section.track-links > div {
+        padding: 0px 15px;
+        width: calc(100% - 30px);
+        transition: box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1); }
+        main section.artist-track-info form section.artist-links > div:hover, main section.artist-track-info form section.track-links > div:hover {
+          box-shadow: rgba(0, 0, 0, 0.11765) 0px 1px 6px, rgba(0, 0, 0, 0.11765) 0px 1px 4px;
+          background-color: rgba(63, 68, 79, 0.25); }
+  main a.file button, main a.file label {
+    font-size: 14px;
+    cursor: pointer;
+    display: block;
+    width: 100px;
+    border-radius: 3px;
+    padding: 12px;
+    padding-left: 34px;
+    color: #FFFFFF;
+    background-color: #3F444F;
+    text-align: left;
+    background-repeat: no-repeat;
+    background-position: 6px;
+    transition: box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1); }
+    main a.file button.upload, main a.file label.upload {
+      background-image: url("/cdn/icons/upload.png"); }
+    main a.file button.download, main a.file label.download {
+      background-image: url("/cdn/icons/download.png"); }
+    main a.file button:hover, main a.file label:hover {
+      box-shadow: rgba(0, 0, 0, 0.11765) 0px 1px 6px, rgba(0, 0, 0, 0.11765) 0px 1px 4px;
+      background-color: #1B4C79; }
+    main a.file button:focus, main a.file button:active, main a.file label:focus, main a.file label:active {
+      box-shadow: rgba(0, 0, 0, 0.15686) 0px 3px 10px, rgba(0, 0, 0, 0.22745) 0px 3px 10px;
+      background-color: #1B4C79; }
+  main button.filee {
+    width: 140px;
+    border-radius: 3px;
+    padding: 12px;
+    padding-left: calc(34px);
+    color: #FFFFFF;
+    background-color: #3F444F;
+    text-align: left;
+    background-repeat: no-repeat;
+    background-position: 6px;
+    transition: box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1); }
+    main button.filee.upload {
+      background-image: url("/cdn/icons/upload.png"); }
+    main button.filee.download {
+      background-image: url("/cdn/icons/download.png"); }
+    main button.filee.js-textareacopybtn {
+      background-image: url("/cdn/icons/copy.png"); }
+    main button.filee:hover {
+      box-shadow: rgba(0, 0, 0, 0.11765) 0px 1px 6px, rgba(0, 0, 0, 0.11765) 0px 1px 4px;
+      background-color: #1B4C79; }
+    main button.filee:focus, main button.filee:active {
+      box-shadow: rgba(0, 0, 0, 0.15686) 0px 3px 10px, rgba(0, 0, 0, 0.22745) 0px 3px 10px;
+      background-color: #1B4C79; }
+  main textarea.description {
+    position: fixed;
+    transform: translateY(-90px);
+    z-index: -1;
+    opacity: 0; }
+  main section.darker-section {
+    overflow-x: scroll;
+    background-color: rgba(40, 44, 53, 0.5);
+    padding: 30px 0px; }
+    main section.darker-section.artists-page {
+      justify-content: flex-start; }
+      main section.darker-section.artists-page div.card {
+        width: 200px;
+        padding: 0px 15px; }
+        main section.darker-section.artists-page div.card div {
+          transition: box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1); }
+          main section.darker-section.artists-page div.card div:hover, main section.darker-section.artists-page div.card div:active, main section.darker-section.artists-page div.card div:focus {
+            box-shadow: rgba(0, 0, 0, 0.15686) 0px 3px 10px, rgba(0, 0, 0, 0.22745) 0px 3px 10px; }
+          main section.darker-section.artists-page div.card div > a {
+            color: #E4E4E4;
+            height: 100%;
+            width: 100%; }
+            main section.darker-section.artists-page div.card div > a div {
+              padding: 5px 5px 0px 5px; }
+          main section.darker-section.artists-page div.card div p.artists {
+            padding: 0px 5px 5px 5px;
+            background-color: #3F444F;
+            color: #E4E4E4; }
+            main section.darker-section.artists-page div.card div p.artists.tracks-page {
+              padding: 5px; }
+            main section.darker-section.artists-page div.card div p.artists a {
+              color: #FFFFFF;
+              transition: color 0.15s cubic-bezier(0.4, 0, 0.2, 1); }
+              main section.darker-section.artists-page div.card div p.artists a:hover, main section.darker-section.artists-page div.card div p.artists a:active, main section.darker-section.artists-page div.card div p.artists a:focus {
+                color: #1786ED; }
+          main section.darker-section.artists-page div.card div img {
+            width: 200px;
+            height: 200px;
+            display: block; }
+          main section.darker-section.artists-page div.card div div {
+            background-color: #3F444F;
+            height: 19px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: flex-start; }
+    main section.darker-section.tracks-page div.card {
+      margin: 0px 15px; }
+      main section.darker-section.tracks-page div.card div {
+        justify-content: space-around;
+        height: 200px; }
+        main section.darker-section.tracks-page div.card div img {
+          width: 200px;
+          height: 200px;
+          display: block; }
+        main section.darker-section.tracks-page div.card div button.eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee {
+          display: none; }
+          main section.darker-section.tracks-page div.card div button.eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee:nth-child(1) {
+            background-image: url("/cdn/icons/upload.png");
+            background-color: #1B4C79;
+            display: block; }
+            main section.darker-section.tracks-page div.card div button.eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee:nth-child(1):focus, main section.darker-section.tracks-page div.card div button.eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee:nth-child(1):active, main section.darker-section.tracks-page div.card div button.eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee:nth-child(1):hover {
+              background-color: #21588B; }
+          main section.darker-section.tracks-page div.card div button.eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee.media-exists {
+            display: block; }
+            main section.darker-section.tracks-page div.card div button.eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee.media-exists:nth-child(1) {
+              background-color: #323742; }
+              main section.darker-section.tracks-page div.card div button.eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee.media-exists:nth-child(1):focus, main section.darker-section.tracks-page div.card div button.eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee.media-exists:nth-child(1):active, main section.darker-section.tracks-page div.card div button.eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee.media-exists:nth-child(1):hover {
+                background-color: #0F3F6A; }
+        main section.darker-section.tracks-page div.card div p {
+          text-align: center;
+          padding: 12px;
+          font-size: 14px; }
+  main section.other-files {
+    margin-top: 10px; }
+    main section.other-files button {
+      margin: 0px 5px 10px 5px;
+      z-index: 5; }
+  main section.bottom-filler {
+    height: 10px;
+    transform: rotateZ(180deg);
+    box-shadow: rgba(0, 0, 0, 0.11765) 0px 1px 6px, rgba(0, 0, 0, 0.11765) 0px 1px 4px; }
+    main section.bottom-filler:last-child {
+      height: 20px; }
+    main section.bottom-filler::after {
+      width: 100%;
+      height: 10px;
+      background-color: #323742;
+      content: "";
+      position: absolute;
+      transform: translateY(-10px); }
+
+.login div {
+  background-color: #323742;
+  margin: 10px; }
+  .login div input {
+    width: 160px;
+    text-align: center;
+    font-size: 20px;
+    transition: box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1); }
+    .login div input:hover, .login div input:focus, .login div input:active {
+      background-color: #1B4C79;
+      box-shadow: rgba(0, 0, 0, 0.15686) 0px 3px 10px, rgba(0, 0, 0, 0.22745) 0px 3px 10px; }
+    .login div input.incorrect {
+      border: 1px solid #c63535; }
+
+main.sitemap div {
+  justify-content: space-around;
+  max-width: 1300px;
+  margin: auto; }
+  main.sitemap div div {
+    width: 300px; }
+    main.sitemap div div p {
+      text-align: center; }
+
+/*# sourceMappingURL=admin.css.map */
